@@ -1,0 +1,56 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "paths": {
+      "@perfreact/public/*": [
+        "./public/*"
+      ],
+      "@perfreact/components/*": [
+        "./src/components/*"
+      ],
+      "@perfreact/contexts/*": [
+        "./src/contexts/*"
+      ],
+      "@perfreact/hooks/*": [
+        "./src/hooks/*"
+      ],
+      "@perfreact/pages/*": [
+        "./src/pages/*"
+      ],
+      "@perfreact/services/*": [
+        "./src/services/*"
+      ],
+      "@perfreact/styles/*": [
+        "./src/styles/*"
+      ],
+      "@perfreact/utils/*": [
+        "./src/utils/*"
+      ]
+    },
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "target": "es5",
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ]
+}
