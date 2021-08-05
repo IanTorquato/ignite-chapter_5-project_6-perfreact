@@ -3,7 +3,7 @@
 module.exports = () => {
   const data = { products: [] };
 
-  for (let index = 0; index < 1000; index++) {
+  for (let index = 0; index < 10000; index++) {
     data.products.push({
       id: index + 1,
       price: Math.round(Math.random() * 8000),

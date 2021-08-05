@@ -18,7 +18,7 @@
   margin-bottom: 16px;
 }
 
-.container form + div {
+.container>div + div {
   letter-spacing: 0.4px;
   max-height: 80vh;
   padding: 8px;
