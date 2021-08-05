@@ -15,9 +15,17 @@ body {
   width: 100vw;
 }
 
+input {
+  border: 0;
+  font-size: 16px;
+  padding: 4px;
+}
+
 button {
   border: 0;
   cursor: pointer;
+  font-size: 16px;
+  padding: 4px;
 }
 
 a {

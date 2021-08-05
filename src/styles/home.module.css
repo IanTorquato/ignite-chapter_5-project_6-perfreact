@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+}
+
+.container h1 {
+  margin-bottom: 8px;
+}
+
+.container form {
+  display: flex;
+  flex-direction: column;
+  margin-right: 112px;
+  width: 240px;
+}
+
+
+.container form input {
+  margin-bottom: 16px;
+}
+
+.container form + div {
+  letter-spacing: 0.4px;
+  max-height: 80vh;
+  padding: 8px;
+  overflow: scroll;
+}
