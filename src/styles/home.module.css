@@ -19,18 +19,17 @@
 }
 
 .container>div + div {
-  letter-spacing: 0.4px;
-  max-height: 80vh;
-  padding: 8px;
-  overflow: scroll;
+  letter-spacing: 0.2px;
 }
 
-.container>div + div>div {
-  display: flex;
-  justify-content: space-between;
-  margin: 4px 0;
+.container>div + div h2 {
+  margin-bottom: 8px;
 }
 
 .container>div + div button {
-  margin-left: 8px;
+  margin: 0 4px;
+}
+
+.container>div + div span {
+margin-left: 8px;
 }
