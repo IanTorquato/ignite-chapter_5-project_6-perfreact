@@ -24,3 +24,13 @@
   padding: 8px;
   overflow: scroll;
 }
+
+.container>div + div>div {
+  display: flex;
+  justify-content: space-between;
+  margin: 4px 0;
+}
+
+.container>div + div button {
+  margin-left: 8px;
+}

@@ -15,7 +15,9 @@ type ProductItemProps = {
 function ProductItemComponent({ product, onAddToWishList }: ProductItemProps) {
   return (
     <div>
-      {product.title} - <strong>{product.priceFormatted}</strong>
+      <div>
+        {product.title} - <strong>{product.priceFormatted}</strong>
+      </div>
       <button onClick={() => onAddToWishList(product.id)}>Add to wishlist</button>
     </div>
   );
