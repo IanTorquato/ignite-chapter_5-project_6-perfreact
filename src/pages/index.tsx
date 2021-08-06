@@ -1,11 +1,17 @@
 import { FormEvent, useCallback, useState } from 'react';
 
+import { Product } from '@perfreact/components/ProductItem';
 import { SearchResults } from '@perfreact/components/SearchResults';
 import styles from '@perfreact/styles/home.module.css';
 
+type Results = {
+  totalPrice: number;
+  data: Product[];
+};
+
 export default function Home() {
   const [search, setSearch] = useState('');
-  const [products, setProducts] = useState([]);
+  const [results, setResults] = useState<Results>();
 
   async function handleSearch(event: FormEvent) {
     event.preventDefault();
@@ -17,7 +23,18 @@ export default function Home() {
     const response = await fetch(`http://localhost:3333/products?q=${search}`);
     const data = await response.json();
 
-    setProducts(data);
+    const formatter = new Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' });
+
+    const products = data.map((product) => ({
+      id: product.id,
+      title: product.title,
+      price: product.price,
+      priceFormatted: formatter.format(product.price),
+    }));
+
+    const totalPrice: number = data.reduce((total, product) => total + product.price, 0);
+
+    setResults({ data: products, totalPrice });
   }
 
   const addToWishList = useCallback((id: number) => {
@@ -36,7 +53,7 @@ export default function Home() {
         </form>
       </div>
 
-      {!!products[0] && <SearchResults products={products} onAddToWishList={addToWishList} />}
+      {results && <SearchResults products={results.data} totalPrice={results.totalPrice} onAddToWishList={addToWishList} />}
     </div>
   );
 }

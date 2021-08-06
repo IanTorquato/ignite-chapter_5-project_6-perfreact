@@ -1,16 +1,13 @@
 /* eslint-disable no-param-reassign */
-import { useMemo } from 'react';
-
-import { Product, ProductItem } from './ProductItem';
+import { Product, ProductItem } from '@perfreact/components/ProductItem';
 
 type SearchProductsProps = {
   products: Product[];
+  totalPrice: number;
   onAddToWishList: (id: number) => void;
 };
 
-export function SearchResults({ products, onAddToWishList }: SearchProductsProps) {
-  const totalPrice: any = useMemo(() => products.reduce((total, product) => total + product.price, 0), [products]);
-
+export function SearchResults({ products, totalPrice, onAddToWishList }: SearchProductsProps) {
   return (
     <div>
       <h2>{totalPrice}</h2>
