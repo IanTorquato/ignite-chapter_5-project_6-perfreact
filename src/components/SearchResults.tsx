@@ -5,9 +5,10 @@ import { Product, ProductItem } from './ProductItem';
 
 type SearchProductsProps = {
   products: Product[];
+  onAddToWishList: (id: number) => void;
 };
 
-export function SearchResults({ products }: SearchProductsProps) {
+export function SearchResults({ products, onAddToWishList }: SearchProductsProps) {
   const totalPrice: any = useMemo(() => products.reduce((total, product) => total + product.price, 0), [products]);
 
   return (
@@ -15,7 +16,7 @@ export function SearchResults({ products }: SearchProductsProps) {
       <h2>{totalPrice}</h2>
 
       {products.map((product) => (
-        <ProductItem key={product.id} product={product} />
+        <ProductItem key={product.id} product={product} onAddToWishList={onAddToWishList} />
       ))}
     </div>
   );

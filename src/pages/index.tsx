@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, useCallback, useState } from 'react';
 
 import { SearchResults } from '@perfreact/components/SearchResults';
 import styles from '@perfreact/styles/home.module.css';
@@ -20,6 +20,10 @@ export default function Home() {
     setProducts(data);
   }
 
+  const addToWishList = useCallback((id: number) => {
+    console.log(`Add ${id}`);
+  }, []);
+
   return (
     <div className={styles.container}>
       <div>
@@ -32,7 +36,7 @@ export default function Home() {
         </form>
       </div>
 
-      {!!products[0] && <SearchResults products={products} />}
+      {!!products[0] && <SearchResults products={products} onAddToWishList={addToWishList} />}
     </div>
   );
 }
