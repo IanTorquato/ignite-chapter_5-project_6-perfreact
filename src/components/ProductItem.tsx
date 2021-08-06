@@ -1,4 +1,13 @@
-import { memo } from 'react';
+import dynamic from 'next/dynamic';
+import { memo, useState } from 'react';
+
+import { AddProductToWishlistProps } from '@perfreact/components/AddProductToWishlist';
+
+const AddProductToWishlist = dynamic<AddProductToWishlistProps>(
+  () => import('@perfreact/components/AddProductToWishlist').then((mod) => mod.AddProductToWishlist),
+  // eslint-disable-next-line react/display-name
+  { loading: () => <span>Carregando...</span> },
+);
 
 export type Product = {
   id: number;
@@ -9,16 +18,26 @@ export type Product = {
 
 type ProductItemProps = {
   product: Product;
-  onAddToWishList: (id: number) => void;
+  onAddToWishlist: (id: number) => void;
 };
 
-function ProductItemComponent({ product, onAddToWishList }: ProductItemProps) {
+function ProductItemComponent({ product, onAddToWishlist }: ProductItemProps) {
+  const [isAddingToWishlist, setIsAddingToWishlist] = useState(false);
+
   return (
     <div>
       <div>
         {product.title} - <strong>{product.priceFormatted}</strong>
       </div>
-      <button onClick={() => onAddToWishList(product.id)}>Add to wishlist</button>
+
+      <button onClick={() => setIsAddingToWishlist(true)}>Adicionar aos favoritos</button>
+
+      {isAddingToWishlist && (
+        <AddProductToWishlist
+          onAddToWishlist={() => onAddToWishlist(product.id)}
+          onRequestClose={() => setIsAddingToWishlist(false)}
+        />
+      )}
     </div>
   );
 }

@@ -53,7 +53,7 @@ export default function Home() {
         </form>
       </div>
 
-      {results && <SearchResults products={results.data} totalPrice={results.totalPrice} onAddToWishList={addToWishList} />}
+      {results && <SearchResults products={results.data} totalPrice={results.totalPrice} onAddToWishlist={addToWishList} />}
     </div>
   );
 }
