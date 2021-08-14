@@ -7,6 +7,7 @@ export function AddProductToWishlist({ onAddToWishlist, onRequestClose }: AddPro
   return (
     <span>
       Deseja adicionar aos favoritos?
+
       <button onClick={onAddToWishlist}>Sim</button>
       <button onClick={onRequestClose}>Não</button>
     </span>

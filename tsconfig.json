@@ -43,7 +43,7 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": false,
-    "target": "es5",
+    "target": "es2017",
   },
   "exclude": [
     "node_modules"
